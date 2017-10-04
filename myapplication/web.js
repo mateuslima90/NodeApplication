@@ -1,5 +1,3 @@
-//adicionando comentario para teste
-
 
 const cluster = require('cluster');
 const http = require('http');
