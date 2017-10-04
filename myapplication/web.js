@@ -25,6 +25,7 @@ res.send('Hello World!');
 
 app.listen(3000,function() {
 console.log('Example app listening on port 3000!')
+console.log('example')
 });
 
   console.log(`Worker ${process.pid} started`);
