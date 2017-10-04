@@ -1,3 +1,5 @@
+//adicionando comentario para teste
+
 
 const cluster = require('cluster');
 const http = require('http');
@@ -26,6 +28,7 @@ res.send('Hello World!');
 
 app.listen(3000,function() {
 console.log('Example app listening on port 3000!')
+console.log('--')
 });
 
   console.log(`Worker ${process.pid} started`);
