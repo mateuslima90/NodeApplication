@@ -1,0 +1,17 @@
+set from= "makingthehand@gmail.com"
+set realname= "Mateus Lima Fonseca"
+
+set imap_user="makingthehand@gmail.com"
+set imap_pass="pug@2014"
+
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+set trash = "imaps://imap.gmail.com/[Gmail]/Trash"
+
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+
+set smtp_url = "smtp://makingthehand@smtp.gmail.com:587/"
+set smtp_pass = "pug@2014"
