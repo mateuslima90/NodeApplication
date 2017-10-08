@@ -8,7 +8,7 @@
         shell: curl https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh -o install_nvm.sh; bash install_nvm.sh
 
       - name: Atualizar terminal source
-        shell: /bin/bash -c "source ~/.profile && nvm install 6.11.4 && nvm alias default 6.11.4"
+        shell: /bin/bash -c "source ~/.nvm/nvm.sh && nvm install 6.11.4 && nvm alias default 6.11.4"
 
       - name: Instalando NPM
         apt: name=npm
