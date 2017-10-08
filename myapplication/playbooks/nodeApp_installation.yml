@@ -35,7 +35,7 @@
         shell: mkdir /var/log/webhook; cp webhooks.conf /etc/supervisor/conf.d/webhooks.conf; supervisorctl reread; supervisorctl update;
 
       - name: Configure mutt
-        shell: mkdir -p ~/mutt/cache/headers; mkdir ~/.mutt/cache/bodies; touch ~/.mutt/certificates; cp muttrc /.mutt/;
+        shell: mkdir -p ~/.mutt/cache/headers; mkdir ~/.mutt/cache/bodies; touch ~/.mutt/certificates; cp muttrc /.mutt/;
 
       - name: Automatizando envio de e-mail
         shell: sudo rm -rf /etc/crontab; cp crontab /etc/;
