@@ -32,7 +32,7 @@
         shell: cp nginx-selfsigned.key /etc/ssl/private/; cp nginx-selfsigned.crt /etc/ssl/certs/; cp dhparam.pem /etc/ssl/certs/; cp self-signed.conf /etc/nginx/snippets/; cp ssl-params.conf /etc/nginx/snippets/; sudo ufw allow 'Nginx Full'; sudo ufw delete allow 'Nginx HTTP'; sudo systemctl restart nginx; sudo rm -rf /etc/nginx/sites-available/;mkdir /etc/nginx/sites-available; cp default /etc/nginx/sites-available/;
 
       - name: Configurando supervisor
-        shell: cp webhooks.conf /etc/supervisor/conf.d/webhooks.conf; supervisorctl reread; supervisorctl update;
+        shell: mkdir /var/log/webhook; cp webhooks.conf /etc/supervisor/conf.d/webhooks.conf; supervisorctl reread; supervisorctl update;
 
       - name: Configure mutt
         shell: mkdir -p ~/mutt/cache/headers; mkdir ~/.mutt/cache/bodies; touch ~/.mutt/certificates; cp muttrc /.mutt/;
