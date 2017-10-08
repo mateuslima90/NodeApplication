@@ -14,5 +14,5 @@
         apt: name=npm
 
       - name: Instalando dependencia NODEJS
-        shell: npm install express
+        shell: npm install -g express; npm link express
 
