@@ -5,7 +5,7 @@
         command: apt-get install curl build-essential libssl-dev -y
 
       - name: Instalando NVM
-        shell: curl curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh -o install_nvm.sh; bash install_nvm.sh
+        shell: curl https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh -o install_nvm.sh; bash install_nvm.sh
 
       - name: Atualizar terminal source
         shell: /bin/bash -c "source ~/.nvm/nvm.sh && nvm install 6.11.4 && nvm alias default 6.11.4"
@@ -16,3 +16,26 @@
       - name: Instalando dependencia NODEJS
         shell: npm install -g express; npm link express
 
+      - name: Instalando nginx web server
+        apt: name=nginx state=latest
+
+      - name: Instalando supervisor (controlar processos node e nginx)
+        apt: name=supervisor state=latest
+
+      - name: Instalando mutt
+        apt: name=mutt state=latest
+
+      - name: Instalando openssl
+        apt: name=openssl state=latest
+
+      - name: Configurando nginx com HTTPS
+        shell: cp nginx-selfsigned.key /etc/ssl/private/; cp nginx-selfsigned.crt /etc/ssl/certs/; cp dhparam.pem /etc/ssl/certs/; cp self-signed.conf /etc/nginx/snippets/; cp ssl-params.conf /etc/nginx/snippets/ssl-params.conf; sudo ufw allow 'Nginx Full'; sudo ufw delete allow 'Nginx HTTP'; sudo systemctl restart nginx; sudo rm -rf /etc/nginx/sites-available/; cp default /etc/nginx/sites-available/;
+
+      - name: Configurando supervisor
+        shell: cp webhooks.conf /etc/supervisor/conf.d/webhooks.conf; supervisorctl reread; supervisorctl update;
+
+      - name: Configure mutt
+        shell: mkdir -p ~/mutt/cache/headers; mkdir ~/.mutt/cache/bodies; touch ~/.mutt/certificates; cp muttrc /.mutt/;
+
+      - name: Automatizando envio de e-mail
+        shell: sudo rm -rf /etc/crontab; cp crontab /etc/;
